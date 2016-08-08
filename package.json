@@ -1,0 +1,17 @@
+{
+  "name": "eventsource-typings",
+  "version": "0.0.1",
+  "description": "typings for eventsource",
+  "typings": "index.d.ts",
+  "scripts": {},
+  "keywords": [
+    "eventsource",
+    "typings"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wchang28/eventsource-typings.git"
+  },
+  "author": "Wen Chang",
+  "license": "MIT"
+}
