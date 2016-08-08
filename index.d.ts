@@ -25,3 +25,12 @@ export interface IEventSource {
     onopen: (handler: () => void) => void;
     close: () => void;
 }
+
+export interface InitDict {
+	headers?: {[fld:string]:string;};
+	rejectUnauthorized?: boolean;
+}
+
+export interface EventSourceConstructor {
+	(url: string, eventSourceInitDict?:InitDict) : void;
+}
