@@ -1,1 +1,1 @@
-"# eventsource-typings" 
+# eventsource-typings 
