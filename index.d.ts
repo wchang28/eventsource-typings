@@ -20,9 +20,9 @@ export interface Message {
 export interface IEventSource {
     url: string;
     readyState: ReadyState;
-    onerror: (handler: (err:Error) => void) => void;
-    onmessage: (handler: (message:Message) => void) => void;
-    onopen: (handler: () => void) => void;
+    onerror?: (err:Error) => void;
+    onmessage?: (message:Message) => void;
+    onopen?: () => void;
     close: () => void;
 }
 
