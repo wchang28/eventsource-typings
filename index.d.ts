@@ -27,20 +27,20 @@ export interface IEventSource {
 }
 
 export interface InitDict {
-	withCredentials?: boolean;	// W3C standard
-	// npm eventsource extension (version >= 1.0.0)
-	/////////////////////////////////////////////////////////////
-	headers?: {[fld:string]:string;};
-	https?: {
-		rejectUnauthorized?: boolean;
-	};
-	proxy?: string;
+    withCredentials?: boolean;	// W3C standard
+    // npm eventsource extension (version >= 1.0.0)
+    /////////////////////////////////////////////////////////////
+    headers?: {[fld:string]:string;};
+    https?: {
+        rejectUnauthorized?: boolean;
+    };
+    proxy?: string;
 	/////////////////////////////////////////////////////////////
 }
 
 /*
 export interface EventSourceConstructor {
-	(url: string, eventSourceInitDict?:InitDict) : void;
+    (url: string, eventSourceInitDict?:InitDict) : void;
 }
 */
 
