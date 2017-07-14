@@ -15,15 +15,19 @@ export interface Error {
 
 export interface Message {
     data: string;
+    lastEventId?: string;
+    origin?: string;
 }
 
 export interface IEventSource {
-    url: string;
-    readyState: ReadyState;
+    readonly url: string;
+    readonly readyState: ReadyState;
     onerror?: (err:Error) => void;
     onmessage?: (message: Message) => void;
     onopen?: () => void;
-    close: () => void;
+    close () : void;
+    addEventListener(event: string, listener: (message: Message) => void) : void;
+    removeEventListener(event: string, listener: (message: Message) => void) : void;
 }
 
 export interface InitDict {
@@ -37,12 +41,6 @@ export interface InitDict {
     proxy?: string;
     /////////////////////////////////////////////////////////////
 }
-
-/*
-export interface EventSourceConstructor {
-    (url: string, eventSourceInitDict?:InitDict) : void;
-}
-*/
 
 export interface EventSourceConstructor {
     new (url: string, eventSourceInitDict?:InitDict): IEventSource;
