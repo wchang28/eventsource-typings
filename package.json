@@ -1,7 +1,7 @@
 {
   "name": "eventsource-typings",
   "version": "0.0.5",
-  "description": "typings for eventsource",
+  "description": "typings for EventSource",
   "typings": "index.d.ts",
   "scripts": {},
   "keywords": [
