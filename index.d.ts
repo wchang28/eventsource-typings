@@ -4,14 +4,7 @@ export enum ReadyState {
     ,CLOSED = 2
 }
 
-export interface Error {
-    target?: any;
-    type?: string;
-    bubbles?: boolean;
-    cancelable?: boolean;
-    view?: any;
-    detail?: number;
-}
+export type Error = Event;
 
 export interface Message {
     data: string;
@@ -21,25 +14,33 @@ export interface Message {
 
 export interface IEventSource {
     readonly url: string;
+    readonly withCredentials: boolean;
     readonly readyState: ReadyState;
-    onerror?: (err:Error) => void;
+    /** Always 0 */
+    readonly CONNECTING: ReadyState;
+    /** Always 1 */
+    readonly OPEN: ReadyState;
+    /** Always 2 */
+    readonly CLOSED: ReadyState;
+    onerror?: (err: Error) => any;
     onmessage?: (message: Message) => void;
-    onopen?: () => void;
+    onopen?: (event: Event) => any;
     close () : void;
     addEventListener(event: string, listener: (message: Message) => void) : void;
     removeEventListener(event: string, listener: (message: Message) => void) : void;
 }
 
-export interface InitDict {
-    withCredentials?: boolean;	// W3C standard
-    // npm eventsource extension (version >= 1.0.0)
-    /////////////////////////////////////////////////////////////
+/** InitDict extension for node eventsource package @ github.com/EventSource/eventsource (version >= 1.0.0) */
+export interface InitDictNodeEventSourceExtension {
     headers?: {[fld:string]:string;};
     https?: {
         rejectUnauthorized?: boolean;
     };
     proxy?: string;
-    /////////////////////////////////////////////////////////////
+}
+
+export interface InitDict extends InitDictNodeEventSourceExtension {
+    withCredentials?: boolean;	// W3C standard
 }
 
 export interface EventSourceConstructor {

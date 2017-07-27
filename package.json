@@ -1,11 +1,13 @@
 {
   "name": "eventsource-typings",
-  "version": "0.0.5",
-  "description": "typings for EventSource",
+  "version": "0.0.6",
+  "description": "EventSource typings for both web client and Node.js",
   "typings": "index.d.ts",
   "scripts": {},
   "keywords": [
     "eventsource",
+    "server-sent-events",
+    "sse",
     "typings"
   ],
   "repository": {
